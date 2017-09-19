@@ -1,4 +1,4 @@
-# READ ME INSTRUCTION:
+## READ ME INSTRUCTION:
 
 Nupur Desai
 
@@ -19,7 +19,7 @@ EXPECTED GRADE: A
 Github URL: https://github.com/NupurGP/JQuery-Button-Events
 
 
-## TO RUN THE APPLICATION : Open the html page (HW1-Q1.html) in any browser.
+#### TO RUN THE APPLICATION : Open the html page (HW1-Q1.html) in any browser.
 
 Angular Working Arrays (Hello World) Link : https://github.com/NupurGP/angular-hello-world
 
