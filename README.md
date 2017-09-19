@@ -1,9 +1,8 @@
-# JQuery-Button-Events
-
 # READ ME INSTRUCTION:
 
 Nupur Desai
-https://github.com/NupurGP
+
+Github URL: https://github.com/NupurGP
 
 09/16/2017
 
@@ -20,7 +19,8 @@ EXPECTED GRADE: A
 Github URL: https://github.com/NupurGP/JQuery-Button-Events
 
 
-#TO RUN THE APPLICATION : Open the html page (HW1-Q1.html) in any browser.
+## TO RUN THE APPLICATION : Open the html page (HW1-Q1.html) in any browser.
 
 Angular Working Arrays (Hello World) Link : https://github.com/NupurGP/angular-hello-world
+
 Angular Reddit Clone Link : https://github.com/NupurGP/Angular-Reddit-App
