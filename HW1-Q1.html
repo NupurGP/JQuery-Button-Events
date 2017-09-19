@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="root-container">
+        <div class="header">
+            <button id="reverse"> 
+                REVERSE
+            </button>
+            <button id="remove-symbols-numbers"> 
+                REMOVE SYMBOLS & NUMBERS
+            </button>
+            <button id="sort-alphabetically"> 
+                SORT ALPHABETICALLLY
+            </button>
+            <button id="toggle-colors"> 
+                TOGGLE COLOR
+            </button>
+            <button id="random-colors"> 
+                RANDOM COLOR
+            </button>
+            <button id="get-inline">
+                CONVERT TO INLINE
+            </button>
+        </div>
+        <div class="main" >
+            <div class="startups-container" id="new1">
+
+            </div>
+
+        </div>
+        <div class="footer">
+
+        </div>
+
+    </div>
+</body>
+
+</html>
+
+<style>
+    .root-container {
+        position: relative;
+    }
+
+    .root-container .header {
+        position: relative;
+    }
+
+    .root-container .main {
+        position: relative;
+    }
+
+    .root-container .footer {
+        position: relative;
+    }
+
+    .startups-container {
+        background-color: gray;
+    }
+
+    .red {
+        background-image: red;
+		color : red;
+    }
+
+    .blue {
+        background-image: blue;
+		color : blue;
+    }
+
+    .gold {
+        background-image: gold;
+		color : gold;
+    }
+	
+	div.inline {
+        float: left;
+        padding: .30em;
+    }
+</style>
+
+<script>
+    var colors = ['red', 'blue', 'gold'];
+    var chicagoStartupsHTML = [];
+	var reverseChicagoComp=[];
+	var reverseList = [];
+	var ChicagoComp = [];
+	var sortedList = [];
+	var sortedListNew = [];
+	var listWOSyNum = [];
+    var chicagoStartups = [
+        '  Interior   Define  ',
+        'Classkick',
+        'teaBOT  .$',
+        'Pritzker Group Venture Capital',
+        'Teln!yx !!',
+        'ShipBob ~~$$$',
+        'Hologram',
+        'Tovala    ',
+        '    MANOR',
+        'ShuttleCloud 999987',
+        'gtrot @@@@@',
+        'DealsGoRound ****',
+        ' Groovebug',
+        'Stage$$$Bloc',
+        'Shiftgig',
+        'ParkWhiz'
+    ];
+    $(document).ready(function () {
+        $.each(chicagoStartups, function (index, startupName) {
+            chicagoStartupsHTML.push('<div>' + startupName + '</div>');
+        });
+        $(".startups-container").html(chicagoStartupsHTML.join(""));
+  });	
+ 
+	
+	$( "#reverse" ).click(function() {
+			reverseChicagoComp = chicagoStartupsHTML.reverse();
+			reverseList.push('<h1> Reverse List of chicago Startups </h1>');
+			$.each( reverseChicagoComp, function( key, value ) {
+				reverseList.push('<div>' +value + '</div>');
+				$(".startups-container").html(reverseList.join(""));
+			});
+    });
+	
+	
+	$( "#remove-symbols-numbers" ).click(function() {
+	ChicagoComp.push('<h1> List of chicago Startups without symbols-numbers </h1>');
+	ChicagoComp.push('<table><th>Company name before</th><th>Company name after</th>');
+                $.each(chicagoStartups,function(index, name){
+                    var companyName = name;	
+					var companyNameWONum = companyName.replace(/[^A-Za-z]/g, '');
+					listWOSyNum.push('<div>' +companyNameWONum + '</div>');
+					ChicagoComp.push('<tr><td>' +companyName+" </td><td>"+companyNameWONum + '</td></tr>');
+					$(".startups-container").html(ChicagoComp.join(""));
+                });
+    });
+	
+	$( "#sort-alphabetically" ).click(function() {
+	listWOSyNum =[];
+	$.each(chicagoStartups,function(index, name){
+                    var companyName = name;	
+					var companyNameWONum = companyName.replace(/[^A-Za-z]/g, '');
+					listWOSyNum.push('<div>' +companyNameWONum + '</div>');
+					});
+	sortedList = listWOSyNum.sort();
+	sortedListNew.push('<h1> List of chicago Startups in Alphabetical Order </h1>');
+	$.each( sortedList, function( key, value ) {
+				sortedListNew.push('<div>' +value + '</div>');
+				$(".startups-container").html(sortedListNew.join(""));
+			});
+	
+    });
+	
+	
+	var toggle_on = true;
+	$( "#toggle-colors" ).click(function() {		
+			if(toggle_on){
+			  $('#new1').css('background-color', 'white');
+			  toggle_on = false;
+			}
+			else{
+			  $('#new1').css('background-color', 'grey');
+			  toggle_on = true;
+			}
+    });
+     
+	
+	
+	$( "#random-colors" ).click(function() {
+	var randomnumber = Math.floor(Math.random()*10)>2 ? 0 : Math.floor(Math.random()*10);
+	$('#new1').addClass(colors[randomnumber]);
+    });
+
+	
+	$( "#get-inline" ).click(function() {		
+		$(".startups-container").append(
+            $("div", ".startups-container").toggleClass("inline")
+        );		
+    });
+	
+
+    //HOMEWORK 1 PROBLEMS START
+    // 1.CREATE A FUNCTION THAT REVERSES THE LIST OF STARTUPS ON CLICK OF THE REVERSE BUTTON
+    // 2.CREATE A FUNCTION THAT REMOVES ALL SYMBOLS AND NUMBERS FROM COMPANY NAMES ON CLICK OF REMOVE SYMBOLS & NUMBERS BUTTON 
+    //   Stage$$$Bloc => StageBloc
+    // 3.CREATE A FUNCTION THAT SORTS STARTUPS IN ALPHABETICAL ORDER ON CLICK OF THE SORT BUTTON
+    // 4.CREATE A FUNCTION THAT TOGGLES THE BACKGROUND COLOR UPON CLICK OF THE TOGGLE COLOR BUTTON
+    // 5.CREATE A FUNCTION THAT RANDOMLY SELECTS A COLOR CLASS AND APPLIES IT TO EACH COMPANY NAME WHEN THE COLOR BUTTON IS CLICKED
+    // 6.CREATE A FUNCTION THAT DISPLAYS STARTS AS INLINE ELEMENTS ON CLICK OF CONVERT TO INLINE BUTTON
+    //HOMEWORK 1 PROBLEMS END
+
+</script>
